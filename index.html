@@ -23,7 +23,7 @@ function setup() {
   img = createImg("banana.JPG", imageReady);
   img.hide();
   img.size(4032,3024);
-  resultimg = createImg(width, height);
+  resultimg = createImg(4032, 3024);
 }
       
 function modelReady(){
@@ -47,7 +47,7 @@ function gotResult(err, results) {
 function draw() {
     console.log(objects.backgroundMasks);
     background(0);
-    image(resultimg, 0, 0);
+    image(resultimg, 0, 0, 4032, 3024);
 }
       </script>
   </body>
