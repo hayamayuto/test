@@ -31,7 +31,7 @@
       //video.hide(); // Hide the video element, and just show the canvas
 
       // Start with a blank image
-      segmentationImage = createImage(width, height);
+      segmentationImage = createImage(img.naturalWidth, img.naturalHeight);
 
       // initial segmentation
       uNet.segment(img, gotResult);
@@ -52,7 +52,7 @@
 
     function draw() {
       background(0)
-      image(segmentationImage, 0, 0, width, height);
+      image(segmentationImage, 0, 0, img.naturalWidth, img.naturalHeight);
       //image(img, 0, 0)
     }
     </script>
