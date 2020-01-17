@@ -10,46 +10,38 @@
   <body>
     <h1>UNET example using p5.js</h1>
     <script>
-let video;
-let uNet;
-let segmentationImage;
+const   uNet = ml5.uNet('face', modelReady);
+let img;
+let objects = [];
+let status;
 
 // load uNet model
-function preload() {
-  uNet = ml5.uNet('face');
-}
 
 function setup() {
-  createCanvas(320, 240);
-
-  // load up your video
-  video = createCapture(VIDEO);
-  video.size(width, height);
-  video.hide(); // Hide the video element, and just show the canvas
-
-  // Start with a blank image
-  segmentationImage = createImage(width, height);
-
-  // initial segmentation
-  uNet.segment(video, gotResult);
+  createCanvas(4032, 3024);
+  img = createImg("banana.JPG, imageReady);
+  img.hide();
+  img.size(4032,3024);
 }
-
-function gotResult(error, result) {
-  // if there's an error return it
-  if (error) {
-    console.error(error);
-    return;
+      
+function modelReady(){
+  console.log("model Ready!")
+  status = true;
+}
+function imageReady(){
+  console.log("Detecting")
+  uNet.segment(img, gotResult);
+}
+function gotResult(err, result) {
+  if (err) {
+    console.log(err);
   }
-  // set the result to the global segmentation variable
-  segmentationImage = result.backgroundMask;
-  console.log(result);
-  // Continue asking for a segmentation image
-  uNet.segment(video, gotResult);
+  console.log(results)
+  objects = results;
 }
 
 function draw() {
-  background(0)
-  image(segmentationImage, 0, 0, width, height);
+    image(objects, 0, 0)
 }
       </script>
   </body>
