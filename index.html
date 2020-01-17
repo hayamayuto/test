@@ -12,6 +12,7 @@
     <script>
 
     let img;
+    let video;
     let uNet;
     let segmentationImage;
 
@@ -26,15 +27,16 @@
       //img = loadImage("banana.JPG");
 
       // load up your video
-      //video = createCapture(VIDEO);
-      //video.size(width, height);
-      //video.hide(); // Hide the video element, and just show the canvas
+      video = createCapture(VIDEO);
+      video.size(width, height);
+      video.hide(); // Hide the video element, and just show the canvas
+      video = loadImage("banana.JPG");
 
       // Start with a blank image
       segmentationImage = createImage(img.naturalWidth, img.naturalHeight);
 
       // initial segmentation
-      uNet.segment(img, gotResult);
+      uNet.segment(video, gotResult);
     }
 
     function gotResult(error, result) {
@@ -47,13 +49,13 @@
       // set the result to the global segmentation variable
       segmentationImage = result.backgroundMask;
       // Continue asking for a segmentation image
-      uNet.segment(image, gotResult);
+      uNet.segment(video, gotResult);
     }
 
     function draw() {
-      //background(0)
-      //image(segmentationImage, img.naturalWidth, img.naturalHeight);
-      image(img, 0, 0)
+      background(0)
+      image(segmentationImage, img.naturalWidth, img.naturalHeight);
+      //image(img, 0, 0)
     }
     </script>
   </body>
