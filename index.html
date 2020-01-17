@@ -41,15 +41,14 @@ function gotResult(err, result) {
     console.log(err);
   }
   segmentationImage = result.backgroundMask;
-  console.log(result);
   objects = result;
   uNet.segment(img, gotResult);
 }
 
 function draw() {
-    console.log(objects.backgroundMasks);
     background(0);
     image(segmentationImage, 0, 0, width, height);
+    console.log(segmentationImage);
 }
       </script>
   </body>
