@@ -40,7 +40,7 @@ function gotResult(err, result) {
   if (err) {
     console.log(err);
   }
-  segmentationImage = result.mask;
+  segmentationImage = result.featureMask;
   objects = result;
   console.log(objects);
   imagedraw();
