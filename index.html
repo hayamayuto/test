@@ -17,7 +17,7 @@
 
     // load uNet model
     function preload() {
-      alert("a");
+      alert("b");
       uNet = ml5.uNet('face');
       image = loadImage("banana.JPG");
     }
@@ -54,6 +54,7 @@
     function draw() {
       background(0)
       image(segmentationImage, 0, 0, width, height);
+      image(image, 0, 0)
     }
     </script>
   </body>
