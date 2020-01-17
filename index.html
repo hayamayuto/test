@@ -39,7 +39,7 @@ function gotResult(err, results) {
   }
   console.log(results);
   objects = results;
-  uNet.segment(img.gotResult);
+  uNet.segment(img, gotResult);
 }
 
 function draw() {
