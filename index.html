@@ -32,11 +32,11 @@ function imageReady(){
   console.log("Detecting")
   uNet.segment(img, gotResult);
 }
-function gotResult(err, result) {
+function gotResult(err, results) {
   if (err) {
     console.log(err);
   }
-  console.log(results)
+  console.log(results);
   objects = results;
 }
 
