@@ -17,7 +17,6 @@
 
     // load uNet model
     function preload() {
-      alert("b");
       uNet = ml5.uNet('face');
       img = loadImage("banana.JPG");
     }
@@ -25,7 +24,7 @@
     function setup() {
       createCanvas(img.naturalWidth, img.naturalHeight);
       img = loadImage("banana.JPG");
-      image.hide();
+      //image.hide();
 
       // load up your video
       //video = createCapture(VIDEO);
