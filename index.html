@@ -42,12 +42,12 @@ function gotResult(err, result) {
   }
   segmentationImage = result.backgroundMask;
   objects = result;
+  console.log(objects);
 }
 
 function draw() {
     background(0);
     image(segmentationImage, 0, 0, width, height);
-    console.log(segmentationImage);
 }
       </script>
   </body>
