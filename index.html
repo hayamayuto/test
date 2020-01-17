@@ -33,7 +33,7 @@
       segmentationImage = createImage(width, height);
 
       // initial segmentation
-      uNet.segment(image, gotResult);
+      //uNet.segment(image, gotResult);
     }
 
     function gotResult(error, result) {
@@ -47,7 +47,7 @@
       segmentationImage = result.backgroundMask;
 
       // Continue asking for a segmentation image
-      uNet.segment(video, gotResult);
+      uNet.segment(image, gotResult);
     }
 
     function draw() {
