@@ -34,7 +34,7 @@
       segmentationImage = createImage(width, height);
 
       // initial segmentation
-      //uNet.segment(image, gotResult);
+      uNet.segment(img, gotResult);
     }
 
     function gotResult(error, result) {
@@ -46,15 +46,14 @@
       console.log(result);
       // set the result to the global segmentation variable
       segmentationImage = result.backgroundMask;
-
       // Continue asking for a segmentation image
       uNet.segment(image, gotResult);
     }
 
     function draw() {
-      //background(0)
-      //image(segmentationImage, 0, 0, width, height);
-      image(img, 0, 0)
+      background(0)
+      image(segmentationImage, 0, 0, width, height);
+      //image(img, 0, 0)
     }
     </script>
   </body>
