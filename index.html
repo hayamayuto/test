@@ -10,19 +10,22 @@
   <body>
     <h1>UNET example using p5.js</h1>
     <script>
-const   uNet = ml5.uNet('face', modelReady);
+let uNet;
 let img;
-let resultimg
-let objects = [];
+let segmentationImage;
 let status;
-
+function preload(){
+uNet = ml5.uNet('face', modelReady);
+}
 // load uNet model
 
 function setup() {
   createCanvas(4032, 3024);
+  segmentationImage = createImage(width, height);
   img = createImg("banana.JPG", imageReady);
   img.hide();
   img.size(4032,3024);
+  
 }
       
 function modelReady(){
@@ -33,19 +36,20 @@ function imageReady(){
   console.log("Detecting")
   uNet.segment(img, gotResult);
 }
-function gotResult(err, results) {
+function gotResult(err, result) {
   if (err) {
     console.log(err);
   }
-  console.log(results);
-  objects = results;
+  segmentationImage = result.backgroundMask;
+  console.log(result);
+  objects = result;
   uNet.segment(img, gotResult);
 }
 
 function draw() {
     console.log(objects.backgroundMasks);
     background(0);
-    image(img, 0, 0, 4032, 3024);
+    image(segmentationImage, 0, 0, width, height);
 }
       </script>
   </body>
