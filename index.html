@@ -12,6 +12,7 @@
     <script>
 const   uNet = ml5.uNet('face', modelReady);
 let img;
+let resultimg
 let objects = [];
 let status;
 
@@ -22,6 +23,7 @@ function setup() {
   img = createImg("banana.JPG", imageReady);
   img.hide();
   img.size(4032,3024);
+  resultimg = createImg(width, height);
 }
       
 function modelReady(){
@@ -38,13 +40,14 @@ function gotResult(err, results) {
   }
   console.log(results);
   objects = results;
+  resultimg = results.backgroundMask;
   uNet.segment(img.gotResults);
 }
 
 function draw() {
     console.log(objects.backgroundMasks);
     background(0);
-    image(objects.backgroundMasks, 0, 0);
+    image(resultimg, 0, 0);
 }
       </script>
   </body>
