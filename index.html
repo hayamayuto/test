@@ -38,10 +38,10 @@ function gotResult(err, results) {
   }
   console.log(results);
   objects = results;
-  draw();
+  imagedraw();
 }
 
-function draw() {
+function imagedraw() {
     console.log(objects.backgroundMasks);
     background(0);
     image(objects.backgroundMasks, 0, 0, 4032, 3024);
