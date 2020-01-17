@@ -23,7 +23,7 @@ function setup() {
   createCanvas(4032, 3024);
   segmentationImage = createImage(width, height);
   img = createImg("banana.JPG", imageReady);
-  img.hide();
+  //img.hide();
   img.size(4032,3024);
   
 }
@@ -42,7 +42,6 @@ function gotResult(err, result) {
   }
   segmentationImage = result.backgroundMask;
   objects = result;
-  //uNet.segment(img, gotResult);
 }
 
 function draw() {
