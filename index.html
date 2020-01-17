@@ -11,7 +11,7 @@
     <h1>UNET example using p5.js</h1>
     <script>
 
-    let image;
+    let img;
     let uNet;
     let segmentationImage;
 
@@ -19,7 +19,7 @@
     function preload() {
       alert("b");
       uNet = ml5.uNet('face');
-      image = loadImage("banana.JPG");
+      img = loadImage("banana.JPG");
     }
 
     function setup() {
@@ -54,7 +54,7 @@
     function draw() {
       background(0)
       image(segmentationImage, 0, 0, width, height);
-      image(image, 0, 0)
+      image(img, 0, 0)
     }
     </script>
   </body>
