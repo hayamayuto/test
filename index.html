@@ -11,12 +11,13 @@
     <h1>UNET example using p5.js</h1>
     <script>
 
-    let ;
+    let image;
     let uNet;
     let segmentationImage;
 
     // load uNet model
     function preload() {
+      alert("a");
       uNet = ml5.uNet('face');
       image = loadImage("banana.JPG");
     }
