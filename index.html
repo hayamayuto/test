@@ -42,7 +42,7 @@ function gotResult(error, result) {
   }
   // set the result to the global segmentation variable
   segmentationImage = result.backgroundMask;
-
+  console.log(result);
   // Continue asking for a segmentation image
   uNet.segment(video, gotResult);
 }
