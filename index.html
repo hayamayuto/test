@@ -40,12 +40,13 @@ function gotResult(err, result) {
   if (err) {
     console.log(err);
   }
-  segmentationImage = result.backgroundMask;
+  segmentationImage = result.mask;
   objects = result;
   console.log(objects);
+  imagedraw();
 }
 
-function draw() {
+function imagedraw() {
     background(0);
     image(segmentationImage, 0, 0, width, height);
 }
